@@ -6,9 +6,22 @@
     <meta name="keywords" content="CS1.5怎么联机,CS1.5联机,CS1.5怎么玩,CS1.5 Win10,CS1.5 Win11,CS1.5 Windows 10,CS1.5 Windows 11,反恐精英1.5怎么联机,反恐精英1.5 Win10,反恐精英1.5 Win11,CS1.5登陆器,CS1.5服务器,KillerCS,怎么玩CS1.5,CS1.5还能玩吗,老CS联机">
     
     <meta name="author" content="Ricky Killer">
-    <!-- preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--
+        REMOVED 2026-05-11 by RickyMa:
+        Default Redefine ships with preconnects to fonts.googleapis.com and
+        fonts.gstatic.com on every page. We don't actually use Google Fonts
+        anywhere on this site — all our fonts (Chillax / Geist / GeistMono /
+        FontAwesome) are already locally hosted under /fonts/ and /fontawesome/.
+
+        Keeping these preconnects was actively harmful for our user base:
+        - DNS query + TLS handshake to two domains the page never actually loads
+        - Mainland China users get 1-3s timeout on fonts.googleapis.com (GFW
+          intermittently blocks it), which delays LCP and harms perceived speed
+        - Wasted resource-priority budget that should go to local assets
+
+        If a future theme upgrade adds back resource hints, audit first whether
+        the page actually uses those origins. Don't preconnect speculatively.
+    -->
 
     
     <!--- Seo Part-->
@@ -28,10 +41,10 @@
 <meta property="article:published_time" content="2026-05-07T04:00:00.000Z">
 <meta property="article:modified_time" content="2026-05-09T08:15:14.490Z">
 <meta property="article:author" content="Ricky Killer">
+<meta property="article:tag" content="CS联机">
 <meta property="article:tag" content="CS1.5">
 <meta property="article:tag" content="Win10">
 <meta property="article:tag" content="Win11">
-<meta property="article:tag" content="CS联机">
 <meta property="article:tag" content="教程">
 <meta property="article:tag" content="反恐精英">
 <meta name="twitter:card" content="summary">
@@ -409,7 +422,11 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/CS1-5/">CS1.5</a>&nbsp;
+                        <a href="/tags/CS%E8%81%94%E6%9C%BA/">CS联机</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/CS1-5/">CS1.5</a>&nbsp;
                     </li>
                 
                     <li>
@@ -418,10 +435,6 @@
                 
                     <li>
                         | <a href="/tags/Win11/">Win11</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/CS%E8%81%94%E6%9C%BA/">CS联机</a>&nbsp;
                     </li>
                 
                     <li>
@@ -634,6 +647,10 @@
             <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
                 
                     <li class="tag-item mx-0.5">
+                        <a href="/tags/CS%E8%81%94%E6%9C%BA/">#CS联机</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
                         <a href="/tags/CS1-5/">#CS1.5</a>&nbsp;
                     </li>
                 
@@ -643,10 +660,6 @@
                 
                     <li class="tag-item mx-0.5">
                         <a href="/tags/Win11/">#Win11</a>&nbsp;
-                    </li>
-                
-                    <li class="tag-item mx-0.5">
-                        <a href="/tags/CS%E8%81%94%E6%9C%BA/">#CS联机</a>&nbsp;
                     </li>
                 
                     <li class="tag-item mx-0.5">
