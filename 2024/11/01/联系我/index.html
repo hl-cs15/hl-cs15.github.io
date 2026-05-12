@@ -136,29 +136,40 @@
             
                 
                     <style id="ricky-navbar-contrast-fix">
-/* Home page, navbar not shrunk yet (still over dark banner) */
-body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner {
-  /* logo title */
-  .logo-title, .logo-title h1 { color: #fff !important; text-shadow: 0 1px 2px rgba(0,0,0,.5); }
-  /* desktop menu text + icons + chevrons */
-  .right .desktop .navbar-list .navbar-item,
-  .right .desktop .navbar-list .navbar-item a,
-  .right .desktop .navbar-list .navbar-item i,
-  .right .desktop .navbar-list .navbar-item .fa-chevron-down {
-    color: #fff !important;
-    text-shadow: 0 1px 2px rgba(0,0,0,.55);
-  }
-  /* search icon */
-  .right .desktop .navbar-list .navbar-item.search i { color: #fff !important; }
-  /* mobile hamburger bars + icons */
-  .right .mobile .icon-item, .right .mobile .icon-item i { color: #fff !important; }
-  .right .mobile .navbar-bar .navbar-bar-middle,
-  .right .mobile .navbar-bar .navbar-bar-middle::before,
-  .right .mobile .navbar-bar .navbar-bar-middle::after {
-    background: #fff !important;
-  }
+/* Home page, navbar not shrunk yet (still over dark banner).
+   Force white text + shadow on nav elements for banner contrast.
+   Once body.navbar-shrink is added (scroll past banner), these
+   rules stop matching and the theme's default dark text returns. */
+
+/* logo title (left side) */
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .logo-title,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .logo-title h1 {
+  color: #fff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
 }
-/* 确保 active 状态下划线在首页也可见 */
+/* desktop menu text + icons + chevrons */
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .desktop .navbar-list .navbar-item,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .desktop .navbar-list .navbar-item a,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .desktop .navbar-list .navbar-item i,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .desktop .navbar-list .navbar-item .fa-chevron-down {
+  color: #fff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.55);
+}
+/* search icon */
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .desktop .navbar-list .navbar-item.search i {
+  color: #fff !important;
+}
+/* mobile hamburger bars + icons */
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .mobile .icon-item,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .mobile .icon-item i {
+  color: #fff !important;
+}
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .mobile .navbar-bar .navbar-bar-middle,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .mobile .navbar-bar .navbar-bar-middle::before,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .mobile .navbar-bar .navbar-bar-middle::after {
+  background: #fff !important;
+}
+/* active 下划线在首页也保持白色 */
 body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navbar-item a::after,
 body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navbar-item .active::after {
   background: #fff !important;
@@ -558,7 +569,7 @@ body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navb
         <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
             <h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><ul>
 <li><strong>QQ</strong>：329016322</li>
-<li><strong>Email</strong>：<a class="link"   href="mailto:&#109;&#x68;&#x78;&#56;&#x38;&#x38;&#56;&#x40;&#x67;&#109;&#97;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;" >mhx8888@gmail.com <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li><strong>Email</strong>：<a class="link"   href="mailto:&#109;&#104;&#x78;&#56;&#x38;&#56;&#x38;&#64;&#103;&#x6d;&#97;&#x69;&#x6c;&#46;&#x63;&#x6f;&#109;" >mhx8888@gmail.com <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
 <li><strong>QQ 群</strong>：659053685（CS1.5 老玩家群，日常问题群里反馈最快）</li>
 </ul>
 <h2 id="常见问题请先看这里"><a href="#常见问题请先看这里" class="headerlink" title="常见问题请先看这里"></a>常见问题请先看这里</h2><ul>
@@ -613,13 +624,13 @@ body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navb
                     <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="prev"
                         rel="prev"
-                        href="/2024/11/01/%E4%B8%AA%E4%BA%BA%E9%9B%86%E9%94%A6/"
+                        href="/2024/11/01/%E4%B8%AA%E4%BA%BA%E7%AE%80%E4%BB%8B/"
                         >
                             <span class="left arrow-icon flex justify-center items-center">
                                 <i class="fa-solid fa-chevron-left"></i>
                             </span>
                             <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">CS1.5游戏集锦 - 反恐精英精彩视频</span>
+                                <span class="post-nav-title-item">个人简介 - CS1.5骨灰级玩家Ricky Killer</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -629,10 +640,10 @@ body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navb
                     <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="next"
                         rel="next"
-                        href="/2024/11/01/%E7%99%BB%E9%99%86%E5%99%A8%E4%B8%8B%E8%BD%BD/"
+                        href="/2024/11/01/%E5%8A%A0%E5%85%A5v.N.v%E6%9C%8D%E5%8A%A1%E5%99%A8/"
                         >
                             <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">CS1.5登陆器下载 - 反恐精英CS客户端安装包免费下载</span>
+                                <span class="post-nav-title-item">加入CS1.5服务器 - v.N.v反恐精英服务器</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex justify-center items-center">

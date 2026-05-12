@@ -41,8 +41,8 @@
 <meta property="article:published_time" content="2026-05-07T04:00:00.000Z">
 <meta property="article:modified_time" content="2026-05-12T16:24:29.808Z">
 <meta property="article:author" content="Ricky Killer">
-<meta property="article:tag" content="CS联机">
 <meta property="article:tag" content="CS1.5">
+<meta property="article:tag" content="CS联机">
 <meta property="article:tag" content="Win10">
 <meta property="article:tag" content="Win11">
 <meta property="article:tag" content="教程">
@@ -77,29 +77,40 @@
             
                 
                     <style id="ricky-navbar-contrast-fix">
-/* Home page, navbar not shrunk yet (still over dark banner) */
-body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner {
-  /* logo title */
-  .logo-title, .logo-title h1 { color: #fff !important; text-shadow: 0 1px 2px rgba(0,0,0,.5); }
-  /* desktop menu text + icons + chevrons */
-  .right .desktop .navbar-list .navbar-item,
-  .right .desktop .navbar-list .navbar-item a,
-  .right .desktop .navbar-list .navbar-item i,
-  .right .desktop .navbar-list .navbar-item .fa-chevron-down {
-    color: #fff !important;
-    text-shadow: 0 1px 2px rgba(0,0,0,.55);
-  }
-  /* search icon */
-  .right .desktop .navbar-list .navbar-item.search i { color: #fff !important; }
-  /* mobile hamburger bars + icons */
-  .right .mobile .icon-item, .right .mobile .icon-item i { color: #fff !important; }
-  .right .mobile .navbar-bar .navbar-bar-middle,
-  .right .mobile .navbar-bar .navbar-bar-middle::before,
-  .right .mobile .navbar-bar .navbar-bar-middle::after {
-    background: #fff !important;
-  }
+/* Home page, navbar not shrunk yet (still over dark banner).
+   Force white text + shadow on nav elements for banner contrast.
+   Once body.navbar-shrink is added (scroll past banner), these
+   rules stop matching and the theme's default dark text returns. */
+
+/* logo title (left side) */
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .logo-title,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .logo-title h1 {
+  color: #fff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
 }
-/* 确保 active 状态下划线在首页也可见 */
+/* desktop menu text + icons + chevrons */
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .desktop .navbar-list .navbar-item,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .desktop .navbar-list .navbar-item a,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .desktop .navbar-list .navbar-item i,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .desktop .navbar-list .navbar-item .fa-chevron-down {
+  color: #fff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.55);
+}
+/* search icon */
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .desktop .navbar-list .navbar-item.search i {
+  color: #fff !important;
+}
+/* mobile hamburger bars + icons */
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .mobile .icon-item,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .mobile .icon-item i {
+  color: #fff !important;
+}
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .mobile .navbar-bar .navbar-bar-middle,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .mobile .navbar-bar .navbar-bar-middle::before,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .mobile .navbar-bar .navbar-bar-middle::after {
+  background: #fff !important;
+}
+/* active 下划线在首页也保持白色 */
 body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navbar-item a::after,
 body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navbar-item .active::after {
   background: #fff !important;
@@ -498,11 +509,11 @@ body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navb
             <ul>
                 
                     <li>
-                        <a href="/tags/CS%E8%81%94%E6%9C%BA/">CS联机</a>&nbsp;
+                        <a href="/tags/CS1-5/">CS1.5</a>&nbsp;
                     </li>
                 
                     <li>
-                        | <a href="/tags/CS1-5/">CS1.5</a>&nbsp;
+                        | <a href="/tags/CS%E8%81%94%E6%9C%BA/">CS联机</a>&nbsp;
                     </li>
                 
                     <li>
@@ -723,11 +734,11 @@ body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navb
             <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
                 
                     <li class="tag-item mx-0.5">
-                        <a href="/tags/CS%E8%81%94%E6%9C%BA/">#CS联机</a>&nbsp;
+                        <a href="/tags/CS1-5/">#CS1.5</a>&nbsp;
                     </li>
                 
                     <li class="tag-item mx-0.5">
-                        <a href="/tags/CS1-5/">#CS1.5</a>&nbsp;
+                        <a href="/tags/CS%E8%81%94%E6%9C%BA/">#CS联机</a>&nbsp;
                     </li>
                 
                     <li class="tag-item mx-0.5">
@@ -773,10 +784,10 @@ body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navb
                     <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="next"
                         rel="next"
-                        href="/2024/11/01/%E4%B8%AA%E4%BA%BA%E7%AE%80%E4%BB%8B/"
+                        href="/2024/11/01/%E4%B8%AA%E4%BA%BA%E9%9B%86%E9%94%A6/"
                         >
                             <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">个人简介 - CS1.5骨灰级玩家Ricky Killer</span>
+                                <span class="post-nav-title-item">CS1.5游戏集锦 - 反恐精英精彩视频</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex justify-center items-center">
