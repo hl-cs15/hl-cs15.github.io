@@ -126,6 +126,45 @@
 
     <!--- Inject Part-->
     
+        
+            
+    
+            
+    
+            
+                
+                    <style id="ricky-navbar-contrast-fix">
+/* Home page, navbar not shrunk yet (still over dark banner) */
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner {
+  /* logo title */
+  .logo-title, .logo-title h1 { color: #fff !important; text-shadow: 0 1px 2px rgba(0,0,0,.5); }
+  /* desktop menu text + icons + chevrons */
+  .right .desktop .navbar-list .navbar-item,
+  .right .desktop .navbar-list .navbar-item a,
+  .right .desktop .navbar-list .navbar-item i,
+  .right .desktop .navbar-list .navbar-item .fa-chevron-down {
+    color: #fff !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,.55);
+  }
+  /* search icon */
+  .right .desktop .navbar-list .navbar-item.search i { color: #fff !important; }
+  /* mobile hamburger bars + icons */
+  .right .mobile .icon-item, .right .mobile .icon-item i { color: #fff !important; }
+  .right .mobile .navbar-bar .navbar-bar-middle,
+  .right .mobile .navbar-bar .navbar-bar-middle::before,
+  .right .mobile .navbar-bar .navbar-bar-middle::after {
+    background: #fff !important;
+  }
+}
+/* 确保 active 状态下划线在首页也可见 */
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navbar-item a::after,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navbar-item .active::after {
+  background: #fff !important;
+}
+</style>
+
+                
+    
 
     
 <link rel="stylesheet" href="/css/style.css">
@@ -620,6 +659,11 @@
                 } catch (error) {}
             </script>
         
+        
+            
+                
+        
+                
         
         
     </div>  

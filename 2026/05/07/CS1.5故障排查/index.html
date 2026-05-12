@@ -39,7 +39,7 @@
 <meta property="og:description" content="CS1.5 在 Win10 &#x2F; Win11 上常见的黑屏、闪退、白屏、鼠标乱飞、不能联网等问题完整故障排查清单。20 年 CS1.5 老玩家维护的故障速查表。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-05-07T05:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-12T15:54:20.191Z">
+<meta property="article:modified_time" content="2026-05-12T16:22:38.281Z">
 <meta property="article:author" content="Ricky Killer">
 <meta property="article:tag" content="CS1.5">
 <meta property="article:tag" content="Win10">
@@ -67,6 +67,45 @@
 
 
     <!--- Inject Part-->
+    
+        
+            
+    
+            
+    
+            
+                
+                    <style id="ricky-navbar-contrast-fix">
+/* Home page, navbar not shrunk yet (still over dark banner) */
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner {
+  /* logo title */
+  .logo-title, .logo-title h1 { color: #fff !important; text-shadow: 0 1px 2px rgba(0,0,0,.5); }
+  /* desktop menu text + icons + chevrons */
+  .right .desktop .navbar-list .navbar-item,
+  .right .desktop .navbar-list .navbar-item a,
+  .right .desktop .navbar-list .navbar-item i,
+  .right .desktop .navbar-list .navbar-item .fa-chevron-down {
+    color: #fff !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,.55);
+  }
+  /* search icon */
+  .right .desktop .navbar-list .navbar-item.search i { color: #fff !important; }
+  /* mobile hamburger bars + icons */
+  .right .mobile .icon-item, .right .mobile .icon-item i { color: #fff !important; }
+  .right .mobile .navbar-bar .navbar-bar-middle,
+  .right .mobile .navbar-bar .navbar-bar-middle::before,
+  .right .mobile .navbar-bar .navbar-bar-middle::after {
+    background: #fff !important;
+  }
+}
+/* 确保 active 状态下划线在首页也可见 */
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navbar-item a::after,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navbar-item .active::after {
+  background: #fff !important;
+}
+</style>
+
+                
     
 
     
@@ -429,8 +468,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2026-05-12 23:54:20</span>
-            <span class="mobile">2026-05-12 23:54:20</span>
+            <span class="desktop">2026-05-13 00:22:38</span>
+            <span class="mobile">2026-05-13 00:22:38</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -511,11 +550,12 @@
 <li>还不行：<strong>KillerCS 登陆器里有”OpenGL 兼容修复”按钮，点一下</strong>它会装一个 <code>opengl32.dll</code> shim 到 cstrike 目录</li>
 <li>仍然不行：在游戏启动参数里加 <code>-software</code>（强制 DirectX 软件渲染）</li>
 </ol>
-<h3 id="症状-2：能进主菜单但游戏内黑屏，只能听到音效"><a href="#症状-2：能进主菜单但游戏内黑屏，只能听到音效" class="headerlink" title="症状 2：能进主菜单但游戏内黑屏，只能听到音效"></a>症状 2：能进主菜单但游戏内黑屏，只能听到音效</h3><p><strong>原因</strong>：显卡驱动跟 OpenGL 1.x 冲突。NVIDIA 驱动 466 之后版本经常这样。</p>
+<h3 id="症状-2：能进主菜单但游戏内黑屏，只能听到音效"><a href="#症状-2：能进主菜单但游戏内黑屏，只能听到音效" class="headerlink" title="症状 2：能进主菜单但游戏内黑屏，只能听到音效"></a>症状 2：能进主菜单但游戏内黑屏，只能听到音效</h3><p><strong>原因</strong>：显卡驱动跟 OpenGL 1.x 接口配合问题。较新的 NVIDIA &#x2F; AMD 驱动有时会出现这种情况。</p>
 <p><strong>解决</strong>：</p>
 <ul>
-<li>NVIDIA 控制面板 → 管理 3D 设置 → 添加 <code>cstrike.exe</code> → 把 OpenGL 渲染 GPU 设为”集成显卡”，这听起来反直觉，但 1.5 时代的 OpenGL 命令在集显上反而稳</li>
+<li>NVIDIA 控制面板 → 管理 3D 设置 → 添加 <code>cstrike.exe</code> → 手动切换 “OpenGL 渲染 GPU”（集显 &#x2F; 独显各试一次，哪个稳用哪个；这个属于玄学调优，没有通吃方案）</li>
 <li>AMD 显卡：Radeon Software → 游戏 → 加入自定义配置 → 关闭 Radeon Anti-Lag 和 RIS</li>
+<li>都不行的话进 QQ 群 <strong>659053685</strong> 报一下你的显卡型号 + 驱动版本，群里老玩家看了多半能给建议</li>
 </ul>
 <h3 id="症状-3：进游戏黑屏但能听到子弹声、能击杀"><a href="#症状-3：进游戏黑屏但能听到子弹声、能击杀" class="headerlink" title="症状 3：进游戏黑屏但能听到子弹声、能击杀"></a>症状 3：进游戏黑屏但能听到子弹声、能击杀</h3><p><strong>原因</strong>：分辨率不匹配，游戏切到了你显示器不支持的模式。</p>
 <p><strong>解决</strong>：</p>
@@ -524,7 +564,7 @@
 <li>重启游戏，游戏窗口出现后，在游戏内”视频选项”改回你显示器的原生分辨率（推荐 1920x1080），再切回全屏</li>
 </ul>
 <hr>
-<h2 id="❗-闪退类问题"><a href="#❗-闪退类问题" class="headerlink" title="❗ 闪退类问题"></a>❗ 闪退类问题</h2><h3 id="症状-4：进游戏-5-秒钟后必闪退"><a href="#症状-4：进游戏-5-秒钟后必闪退" class="headerlink" title="症状 4：进游戏 5 秒钟后必闪退"></a>症状 4：进游戏 5 秒钟后必闪退</h3><p><strong>最常见原因</strong>：DEP（数据执行保护）拦截了 1.5 的老式内存调用。</p>
+<h2 id="❗-闪退类问题"><a href="#❗-闪退类问题" class="headerlink" title="❗ 闪退类问题"></a>❗ 闪退类问题</h2><h3 id="症状-4：进游戏几秒钟就闪退回桌面"><a href="#症状-4：进游戏几秒钟就闪退回桌面" class="headerlink" title="症状 4：进游戏几秒钟就闪退回桌面"></a>症状 4：进游戏几秒钟就闪退回桌面</h3><p><strong>常见原因</strong>：DEP（数据执行保护）拦截了 1.5 的老式内存调用。</p>
 <p><strong>解决</strong>：</p>
 <ol>
 <li>控制面板 → 系统 → 高级系统设置 → 性能”设置…” → 数据执行保护</li>
@@ -542,7 +582,7 @@
 <h3 id="症状-6：游戏开-5-10-分钟后突然闪退，每次时间长度不固定"><a href="#症状-6：游戏开-5-10-分钟后突然闪退，每次时间长度不固定" class="headerlink" title="症状 6：游戏开 5-10 分钟后突然闪退，每次时间长度不固定"></a>症状 6：游戏开 5-10 分钟后突然闪退，每次时间长度不固定</h3><p><strong>原因</strong>：内存占用 &#x2F; 显卡驱动崩溃 &#x2F; 第三方程序冲突（最常见是各种”游戏加速器”）。</p>
 <p><strong>解决</strong>：</p>
 <ol>
-<li>先关掉所有”加速器”、”网游加速”程序（一键加速、迅游、网易UU 等）</li>
+<li>先关掉所有”加速器”、”网游加速”程序（这类程序会劫持网络栈，老游戏经常冲突）</li>
 <li>关掉 RGB 灯效控制软件（雷蛇 Razer Synapse、罗技 G HUB、Corsair iCUE 经常和老 OpenGL 冲突）</li>
 <li>关掉录屏软件（OBS &#x2F; Bandicam &#x2F; Xbox Game Bar）</li>
 </ol>
@@ -557,11 +597,11 @@
 <h3 id="症状-8：开镜（AWP-狙）后视角不能动"><a href="#症状-8：开镜（AWP-狙）后视角不能动" class="headerlink" title="症状 8：开镜（AWP &#x2F; 狙）后视角不能动"></a>症状 8：开镜（AWP &#x2F; 狙）后视角不能动</h3><p><strong>原因</strong>：高 DPI 鼠标 + 1.5 的极低灵敏度兼容问题。</p>
 <p><strong>解决</strong>：</p>
 <ul>
-<li>把鼠标 DPI 调到 800 或 400（这是 CS1.5 时代的标准）</li>
-<li>游戏内灵敏度 <code>sensitivity 2.5</code> 是经典值</li>
+<li>把鼠标 DPI 调低到 400–800 区间（老玩家常用范围，自己试哪个顺手）</li>
+<li>游戏内灵敏度 <code>sensitivity</code> 常见区间是 1.5–3.0，可以从 2.0 开始调</li>
 </ul>
 <hr>
-<h2 id="❗-网络-联机类问题"><a href="#❗-网络-联机类问题" class="headerlink" title="❗ 网络 &#x2F; 联机类问题"></a>❗ 网络 &#x2F; 联机类问题</h2><h3 id="症状-9：连不上任何服务器，提示-“Connection-failed-after-4-retries”"><a href="#症状-9：连不上任何服务器，提示-“Connection-failed-after-4-retries”" class="headerlink" title="症状 9：连不上任何服务器，提示 “Connection failed after 4 retries”"></a>症状 9：连不上任何服务器，提示 “Connection failed after 4 retries”</h3><p><strong>最可能原因</strong>：UDP 端口被防火墙挡了。</p>
+<h2 id="❗-网络-联机类问题"><a href="#❗-网络-联机类问题" class="headerlink" title="❗ 网络 &#x2F; 联机类问题"></a>❗ 网络 &#x2F; 联机类问题</h2><h3 id="症状-9：连不上任何服务器"><a href="#症状-9：连不上任何服务器" class="headerlink" title="症状 9：连不上任何服务器"></a>症状 9：连不上任何服务器</h3><p><strong>最可能原因</strong>：UDP 端口被防火墙挡了。</p>
 <p><strong>解决</strong>：</p>
 <ol>
 <li>Windows 防火墙 → 允许应用 → <strong>添加 <code>cstrike.exe</code> 和 <code>killercs.exe</code>，公用 + 专用都勾</strong></li>
@@ -572,14 +612,14 @@
 <p><strong>解决</strong>：</p>
 <ul>
 <li>在控制台 <code>rate 25000</code>（提高客户端 rate 上限）</li>
-<li>用国内访问加速器（迅游、网易UU 但只要你确实在它们的服务器列表里）</li>
-<li>或者就接受高 ping，1.5 老服务器对延迟容忍度比 CS:GO&#x2F;CS2 高很多</li>
+<li>有些玩家用游戏加速器能改善链路，但不一定覆盖 CS1.5 — 如果你原本就有加速器会员，可以试；没有的话不必专门买</li>
+<li>或者就接受高 ping，1.5 老服务器对延迟容忍度比 CS:GO&#x2F;CS2 高</li>
 </ul>
 <h3 id="症状-11：进服务器后下载地图特别慢甚至卡死"><a href="#症状-11：进服务器后下载地图特别慢甚至卡死" class="headerlink" title="症状 11：进服务器后下载地图特别慢甚至卡死"></a>症状 11：进服务器后下载地图特别慢甚至卡死</h3><p><strong>原因</strong>：服务器自己的资源下载带宽紧张，或地图特别大。</p>
 <p><strong>解决</strong>：</p>
 <ul>
 <li>先尝试<strong>重新连接</strong>，同一个服务器 KillerCS 会续传</li>
-<li>如果一直在 0% 不动，说明地图下载源挂了。退出服务器，等 1-2 小时再试</li>
+<li>如果一直在 0% 不动，说明该服务器的地图分发源当下不可用。<strong>直接进 QQ 群 659053685 反馈</strong>，群里管理员会看情况让你换服或直接发 .bsp 文件</li>
 <li>或者去 QQ 群 <strong>659053685</strong> 找管理员要那张地图的 .bsp 文件，扔到 <code>cstrike\maps\</code> 里再连服</li>
 </ul>
 <hr>
@@ -612,14 +652,14 @@
 <h2 id="找不到对应症状？"><a href="#找不到对应症状？" class="headerlink" title="找不到对应症状？"></a>找不到对应症状？</h2><p>按这个顺序：</p>
 <ol>
 <li>打开 <a class="link"   target="_blank" rel="noopener" href="https://killercs.com/" >KillerCS 登陆器主页 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>，看 FAQ 区域是否有更新过的故障表</li>
-<li>加 QQ 群 <strong>659053685</strong>，群里管理员见多识广，10 分钟内通常能定位</li>
+<li>加 QQ 群 <strong>659053685</strong>，直接把你的现象 + 系统版本 + 显卡型号贴出来，群里有很多老玩家折腾过类似的坑，通常能帮你定位到方向</li>
 <li>看 <a href="/2026/05/07/CS1.5%E6%80%8E%E4%B9%88%E8%81%94%E6%9C%BA/">CS1.5 怎么联机？Win10&#x2F;Win11 完整教程</a> 复习一遍基础设置</li>
 </ol>
 <h2 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h2><ul>
 <li><a href="/2026/05/07/CS1.5%E6%80%8E%E4%B9%88%E8%81%94%E6%9C%BA/">CS1.5 怎么联机？Win10&#x2F;Win11 完整教程</a></li>
 <li><a href="/2026/05/07/CS1.5%E5%92%8CCS1.6CSGOCS2%E5%8C%BA%E5%88%AB/">CS1.5 vs CS1.6 vs CS:GO vs CS2 对比</a></li>
 <li><a href="/2024/11/01/%E5%8A%A0%E5%85%A5v.N.v%E6%9C%8D%E5%8A%A1%E5%99%A8/">加入 v.N.v 服务器</a></li>
-<li><a href="/2024/11/01/%E7%99%BB%E9%99%86%E5%99%A8%E4%B8%8B%E8%BD%BD/">CS1.5 登陆器下载</a></li>
+<li><a href="/2024/11/01/%E7%99%BB%E9%99%86%E5%99%A8%E4%B8%8B%E8%BD%BD/">CS1.5 登陆器下载</a><br>(&#x2F;2024&#x2F;11&#x2F;01&#x2F;登陆器下载&#x2F;)</li>
 </ul>
 
         </div>
@@ -635,7 +675,7 @@
         
             <li>
                 <strong>更新于
-                    :</strong> 2026-05-12 23:54:20
+                    :</strong> 2026-05-13 00:22:38
             </li>
         
         <li>
@@ -760,7 +800,7 @@
     <div class="post-toc">
         <div class="toc-title">目录</div>
         <div class="page-title">CS1.5 黑屏 / 兼容性 / 闪退完整故障排查 — Win10 Win11 老游戏问题速查</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%99%E7%AF%87%E6%96%87%E6%A1%A3%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-text">这篇文档的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9D%97-%E9%BB%91%E5%B1%8F%E7%B1%BB%E9%97%AE%E9%A2%98"><span class="nav-text">❗ 黑屏类问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-1%EF%BC%9A%E5%8F%8C%E5%87%BB%E5%90%AF%E5%8A%A8-%E2%86%92-%E5%B1%8F%E5%B9%95%E9%BB%91%E4%BA%86%E5%87%A0%E7%A7%92-%E2%86%92-%E8%87%AA%E5%8A%A8%E9%80%80%E5%9B%9E%E6%A1%8C%E9%9D%A2"><span class="nav-text">症状 1：双击启动 → 屏幕黑了几秒 → 自动退回桌面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-2%EF%BC%9A%E8%83%BD%E8%BF%9B%E4%B8%BB%E8%8F%9C%E5%8D%95%E4%BD%86%E6%B8%B8%E6%88%8F%E5%86%85%E9%BB%91%E5%B1%8F%EF%BC%8C%E5%8F%AA%E8%83%BD%E5%90%AC%E5%88%B0%E9%9F%B3%E6%95%88"><span class="nav-text">症状 2：能进主菜单但游戏内黑屏，只能听到音效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-3%EF%BC%9A%E8%BF%9B%E6%B8%B8%E6%88%8F%E9%BB%91%E5%B1%8F%E4%BD%86%E8%83%BD%E5%90%AC%E5%88%B0%E5%AD%90%E5%BC%B9%E5%A3%B0%E3%80%81%E8%83%BD%E5%87%BB%E6%9D%80"><span class="nav-text">症状 3：进游戏黑屏但能听到子弹声、能击杀</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9D%97-%E9%97%AA%E9%80%80%E7%B1%BB%E9%97%AE%E9%A2%98"><span class="nav-text">❗ 闪退类问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-4%EF%BC%9A%E8%BF%9B%E6%B8%B8%E6%88%8F-5-%E7%A7%92%E9%92%9F%E5%90%8E%E5%BF%85%E9%97%AA%E9%80%80"><span class="nav-text">症状 4：进游戏 5 秒钟后必闪退</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-5%EF%BC%9A%E8%BF%9B-vNv-4K-%E8%BF%99%E7%A7%8D%E7%89%B9%E5%AE%9A%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%97%AA%E9%80%80%EF%BC%8C%E8%BF%9B%E5%88%AB%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B2%A1%E4%BA%8B"><span class="nav-text">症状 5：进 vNv &#x2F; 4K 这种特定服务器闪退，进别的服务器没事</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-6%EF%BC%9A%E6%B8%B8%E6%88%8F%E5%BC%80-5-10-%E5%88%86%E9%92%9F%E5%90%8E%E7%AA%81%E7%84%B6%E9%97%AA%E9%80%80%EF%BC%8C%E6%AF%8F%E6%AC%A1%E6%97%B6%E9%97%B4%E9%95%BF%E5%BA%A6%E4%B8%8D%E5%9B%BA%E5%AE%9A"><span class="nav-text">症状 6：游戏开 5-10 分钟后突然闪退，每次时间长度不固定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9D%97-%E9%BC%A0%E6%A0%87%E9%97%AE%E9%A2%98"><span class="nav-text">❗ 鼠标问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-7%EF%BC%9A%E8%BF%9B%E6%B8%B8%E6%88%8F%E9%BC%A0%E6%A0%87%E4%B9%B1%E9%A3%9E%E3%80%81%E5%B7%A6%E5%8F%B3%E6%89%AF"><span class="nav-text">症状 7：进游戏鼠标乱飞、左右扯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-8%EF%BC%9A%E5%BC%80%E9%95%9C%EF%BC%88AWP-%E7%8B%99%EF%BC%89%E5%90%8E%E8%A7%86%E8%A7%92%E4%B8%8D%E8%83%BD%E5%8A%A8"><span class="nav-text">症状 8：开镜（AWP &#x2F; 狙）后视角不能动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9D%97-%E7%BD%91%E7%BB%9C-%E8%81%94%E6%9C%BA%E7%B1%BB%E9%97%AE%E9%A2%98"><span class="nav-text">❗ 网络 &#x2F; 联机类问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-9%EF%BC%9A%E8%BF%9E%E4%B8%8D%E4%B8%8A%E4%BB%BB%E4%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E6%8F%90%E7%A4%BA-%E2%80%9CConnection-failed-after-4-retries%E2%80%9D"><span class="nav-text">症状 9：连不上任何服务器，提示 “Connection failed after 4 retries”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-10%EF%BC%9A%E8%83%BD%E8%BF%9B%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%86-ping-%E9%A3%98%E5%88%B0-200-%E4%B8%80%E5%8D%A1%E4%B8%80%E5%8D%A1"><span class="nav-text">症状 10：能进服务器但 ping 飘到 200+ 一卡一卡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-11%EF%BC%9A%E8%BF%9B%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8E%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9B%BE%E7%89%B9%E5%88%AB%E6%85%A2%E7%94%9A%E8%87%B3%E5%8D%A1%E6%AD%BB"><span class="nav-text">症状 11：进服务器后下载地图特别慢甚至卡死</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9D%97-%E5%85%B6%E4%BB%96%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="nav-text">❗ 其他常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-12%EF%BC%9A%E5%A3%B0%E9%9F%B3%E8%8E%AB%E5%90%8D%E5%8F%98%E6%88%90%E4%BD%8E%E8%B4%A8%E9%87%8F-%E6%9D%82%E9%9F%B3"><span class="nav-text">症状 12：声音莫名变成低质量 &#x2F; 杂音</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-13%EF%BC%9A%E7%99%BB%E9%99%86%E5%99%A8%E8%87%AA%E8%BA%AB%E6%89%93%E4%B8%8D%E5%BC%80%EF%BC%8C%E5%8F%8C%E5%87%BB%E6%B2%A1%E5%8F%8D%E5%BA%94"><span class="nav-text">症状 13：登陆器自身打不开，双击没反应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-14%EF%BC%9A%E7%8E%A9%E7%9D%80%E7%8E%A9%E7%9D%80%E7%AA%81%E7%84%B6%E8%93%9D%E5%B1%8F%EF%BC%88BSoD%EF%BC%89"><span class="nav-text">症状 14：玩着玩着突然蓝屏（BSoD）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-15%EF%BC%9A%E6%B8%B8%E6%88%8F%E5%86%85%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81"><span class="nav-text">症状 15：游戏内中文乱码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%BE%E4%B8%8D%E5%88%B0%E5%AF%B9%E5%BA%94%E7%97%87%E7%8A%B6%EF%BC%9F"><span class="nav-text">找不到对应症状？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E9%98%85%E8%AF%BB"><span class="nav-text">相关阅读</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%99%E7%AF%87%E6%96%87%E6%A1%A3%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-text">这篇文档的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9D%97-%E9%BB%91%E5%B1%8F%E7%B1%BB%E9%97%AE%E9%A2%98"><span class="nav-text">❗ 黑屏类问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-1%EF%BC%9A%E5%8F%8C%E5%87%BB%E5%90%AF%E5%8A%A8-%E2%86%92-%E5%B1%8F%E5%B9%95%E9%BB%91%E4%BA%86%E5%87%A0%E7%A7%92-%E2%86%92-%E8%87%AA%E5%8A%A8%E9%80%80%E5%9B%9E%E6%A1%8C%E9%9D%A2"><span class="nav-text">症状 1：双击启动 → 屏幕黑了几秒 → 自动退回桌面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-2%EF%BC%9A%E8%83%BD%E8%BF%9B%E4%B8%BB%E8%8F%9C%E5%8D%95%E4%BD%86%E6%B8%B8%E6%88%8F%E5%86%85%E9%BB%91%E5%B1%8F%EF%BC%8C%E5%8F%AA%E8%83%BD%E5%90%AC%E5%88%B0%E9%9F%B3%E6%95%88"><span class="nav-text">症状 2：能进主菜单但游戏内黑屏，只能听到音效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-3%EF%BC%9A%E8%BF%9B%E6%B8%B8%E6%88%8F%E9%BB%91%E5%B1%8F%E4%BD%86%E8%83%BD%E5%90%AC%E5%88%B0%E5%AD%90%E5%BC%B9%E5%A3%B0%E3%80%81%E8%83%BD%E5%87%BB%E6%9D%80"><span class="nav-text">症状 3：进游戏黑屏但能听到子弹声、能击杀</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9D%97-%E9%97%AA%E9%80%80%E7%B1%BB%E9%97%AE%E9%A2%98"><span class="nav-text">❗ 闪退类问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-4%EF%BC%9A%E8%BF%9B%E6%B8%B8%E6%88%8F%E5%87%A0%E7%A7%92%E9%92%9F%E5%B0%B1%E9%97%AA%E9%80%80%E5%9B%9E%E6%A1%8C%E9%9D%A2"><span class="nav-text">症状 4：进游戏几秒钟就闪退回桌面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-5%EF%BC%9A%E8%BF%9B-vNv-4K-%E8%BF%99%E7%A7%8D%E7%89%B9%E5%AE%9A%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%97%AA%E9%80%80%EF%BC%8C%E8%BF%9B%E5%88%AB%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B2%A1%E4%BA%8B"><span class="nav-text">症状 5：进 vNv &#x2F; 4K 这种特定服务器闪退，进别的服务器没事</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-6%EF%BC%9A%E6%B8%B8%E6%88%8F%E5%BC%80-5-10-%E5%88%86%E9%92%9F%E5%90%8E%E7%AA%81%E7%84%B6%E9%97%AA%E9%80%80%EF%BC%8C%E6%AF%8F%E6%AC%A1%E6%97%B6%E9%97%B4%E9%95%BF%E5%BA%A6%E4%B8%8D%E5%9B%BA%E5%AE%9A"><span class="nav-text">症状 6：游戏开 5-10 分钟后突然闪退，每次时间长度不固定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9D%97-%E9%BC%A0%E6%A0%87%E9%97%AE%E9%A2%98"><span class="nav-text">❗ 鼠标问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-7%EF%BC%9A%E8%BF%9B%E6%B8%B8%E6%88%8F%E9%BC%A0%E6%A0%87%E4%B9%B1%E9%A3%9E%E3%80%81%E5%B7%A6%E5%8F%B3%E6%89%AF"><span class="nav-text">症状 7：进游戏鼠标乱飞、左右扯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-8%EF%BC%9A%E5%BC%80%E9%95%9C%EF%BC%88AWP-%E7%8B%99%EF%BC%89%E5%90%8E%E8%A7%86%E8%A7%92%E4%B8%8D%E8%83%BD%E5%8A%A8"><span class="nav-text">症状 8：开镜（AWP &#x2F; 狙）后视角不能动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9D%97-%E7%BD%91%E7%BB%9C-%E8%81%94%E6%9C%BA%E7%B1%BB%E9%97%AE%E9%A2%98"><span class="nav-text">❗ 网络 &#x2F; 联机类问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-9%EF%BC%9A%E8%BF%9E%E4%B8%8D%E4%B8%8A%E4%BB%BB%E4%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">症状 9：连不上任何服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-10%EF%BC%9A%E8%83%BD%E8%BF%9B%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%86-ping-%E9%A3%98%E5%88%B0-200-%E4%B8%80%E5%8D%A1%E4%B8%80%E5%8D%A1"><span class="nav-text">症状 10：能进服务器但 ping 飘到 200+ 一卡一卡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-11%EF%BC%9A%E8%BF%9B%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8E%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9B%BE%E7%89%B9%E5%88%AB%E6%85%A2%E7%94%9A%E8%87%B3%E5%8D%A1%E6%AD%BB"><span class="nav-text">症状 11：进服务器后下载地图特别慢甚至卡死</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9D%97-%E5%85%B6%E4%BB%96%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="nav-text">❗ 其他常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-12%EF%BC%9A%E5%A3%B0%E9%9F%B3%E8%8E%AB%E5%90%8D%E5%8F%98%E6%88%90%E4%BD%8E%E8%B4%A8%E9%87%8F-%E6%9D%82%E9%9F%B3"><span class="nav-text">症状 12：声音莫名变成低质量 &#x2F; 杂音</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-13%EF%BC%9A%E7%99%BB%E9%99%86%E5%99%A8%E8%87%AA%E8%BA%AB%E6%89%93%E4%B8%8D%E5%BC%80%EF%BC%8C%E5%8F%8C%E5%87%BB%E6%B2%A1%E5%8F%8D%E5%BA%94"><span class="nav-text">症状 13：登陆器自身打不开，双击没反应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-14%EF%BC%9A%E7%8E%A9%E7%9D%80%E7%8E%A9%E7%9D%80%E7%AA%81%E7%84%B6%E8%93%9D%E5%B1%8F%EF%BC%88BSoD%EF%BC%89"><span class="nav-text">症状 14：玩着玩着突然蓝屏（BSoD）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%97%87%E7%8A%B6-15%EF%BC%9A%E6%B8%B8%E6%88%8F%E5%86%85%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81"><span class="nav-text">症状 15：游戏内中文乱码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%BE%E4%B8%8D%E5%88%B0%E5%AF%B9%E5%BA%94%E7%97%87%E7%8A%B6%EF%BC%9F"><span class="nav-text">找不到对应症状？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E9%98%85%E8%AF%BB"><span class="nav-text">相关阅读</span></a></li></ol>
 
     </div>
 </div>
@@ -843,6 +883,11 @@
                 } catch (error) {}
             </script>
         
+        
+            
+                
+        
+                
         
         
     </div>  

@@ -128,6 +128,45 @@
 
     <!--- Inject Part-->
     
+        
+            
+    
+            
+    
+            
+                
+                    <style id="ricky-navbar-contrast-fix">
+/* Home page, navbar not shrunk yet (still over dark banner) */
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner {
+  /* logo title */
+  .logo-title, .logo-title h1 { color: #fff !important; text-shadow: 0 1px 2px rgba(0,0,0,.5); }
+  /* desktop menu text + icons + chevrons */
+  .right .desktop .navbar-list .navbar-item,
+  .right .desktop .navbar-list .navbar-item a,
+  .right .desktop .navbar-list .navbar-item i,
+  .right .desktop .navbar-list .navbar-item .fa-chevron-down {
+    color: #fff !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,.55);
+  }
+  /* search icon */
+  .right .desktop .navbar-list .navbar-item.search i { color: #fff !important; }
+  /* mobile hamburger bars + icons */
+  .right .mobile .icon-item, .right .mobile .icon-item i { color: #fff !important; }
+  .right .mobile .navbar-bar .navbar-bar-middle,
+  .right .mobile .navbar-bar .navbar-bar-middle::before,
+  .right .mobile .navbar-bar .navbar-bar-middle::after {
+    background: #fff !important;
+  }
+}
+/* 确保 active 状态下划线在首页也可见 */
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navbar-item a::after,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navbar-item .active::after {
+  background: #fff !important;
+}
+</style>
+
+                
+    
 
     
 <link rel="stylesheet" href="/css/style.css">
@@ -471,44 +510,14 @@
 		<ul class="tag-list" data-show-value="true">
 			
 				<li>
-					<a data-weight="1" href="/tags/CS%E5%AF%B9%E6%AF%94/">
-						<i class="fa-solid fa-hashtag"></i>CS对比
+					<a data-weight="1" href="/tags/CS%E8%81%94%E6%9C%BA/">
+						<i class="fa-solid fa-hashtag"></i>CS联机
 					</a>
 				</li>
 			
 				<li>
 					<a data-weight="4" href="/tags/CS1-5/">
 						<i class="fa-solid fa-hashtag"></i>CS1.5
-					</a>
-				</li>
-			
-				<li>
-					<a data-weight="2" href="/tags/CS1-6/">
-						<i class="fa-solid fa-hashtag"></i>CS1.6
-					</a>
-				</li>
-			
-				<li>
-					<a data-weight="1" href="/tags/CSGO/">
-						<i class="fa-solid fa-hashtag"></i>CSGO
-					</a>
-				</li>
-			
-				<li>
-					<a data-weight="1" href="/tags/CS2/">
-						<i class="fa-solid fa-hashtag"></i>CS2
-					</a>
-				</li>
-			
-				<li>
-					<a data-weight="1" href="/tags/%E8%80%81%E7%8E%A9%E5%AE%B6/">
-						<i class="fa-solid fa-hashtag"></i>老玩家
-					</a>
-				</li>
-			
-				<li>
-					<a data-weight="1" href="/tags/CS%E8%81%94%E6%9C%BA/">
-						<i class="fa-solid fa-hashtag"></i>CS联机
 					</a>
 				</li>
 			
@@ -533,6 +542,36 @@
 				<li>
 					<a data-weight="2" href="/tags/%E5%8F%8D%E6%81%90%E7%B2%BE%E8%8B%B1/">
 						<i class="fa-solid fa-hashtag"></i>反恐精英
+					</a>
+				</li>
+			
+				<li>
+					<a data-weight="1" href="/tags/CS%E5%AF%B9%E6%AF%94/">
+						<i class="fa-solid fa-hashtag"></i>CS对比
+					</a>
+				</li>
+			
+				<li>
+					<a data-weight="2" href="/tags/CS1-6/">
+						<i class="fa-solid fa-hashtag"></i>CS1.6
+					</a>
+				</li>
+			
+				<li>
+					<a data-weight="1" href="/tags/CSGO/">
+						<i class="fa-solid fa-hashtag"></i>CSGO
+					</a>
+				</li>
+			
+				<li>
+					<a data-weight="1" href="/tags/CS2/">
+						<i class="fa-solid fa-hashtag"></i>CS2
+					</a>
+				</li>
+			
+				<li>
+					<a data-weight="1" href="/tags/%E8%80%81%E7%8E%A9%E5%AE%B6/">
+						<i class="fa-solid fa-hashtag"></i>老玩家
 					</a>
 				</li>
 			
@@ -652,6 +691,11 @@
                 } catch (error) {}
             </script>
         
+        
+            
+                
+        
+                
         
         
     </div>  
