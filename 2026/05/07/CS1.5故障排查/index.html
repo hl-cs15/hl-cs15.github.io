@@ -39,7 +39,7 @@
 <meta property="og:description" content="CS1.5 在 Win10 &#x2F; Win11 上常见的黑屏、闪退、白屏、鼠标乱飞、不能联网等问题完整故障排查清单。20 年 CS1.5 老玩家维护的故障速查表。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-05-07T05:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-12T17:13:42.577Z">
+<meta property="article:modified_time" content="2026-05-12T17:42:58.011Z">
 <meta property="article:author" content="Ricky Killer">
 <meta property="article:tag" content="CS1.5">
 <meta property="article:tag" content="Win10">
@@ -72,6 +72,15 @@
             
     
             
+    
+            
+                
+                    <meta property="og:image" content="https://hl-cs15.github.io/images/banner.webp">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta property="og:image:alt" content="KillerCS · CS1.5 老玩家博客">
+
+                
     
             
                 
@@ -479,8 +488,8 @@ body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navb
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2026-05-13 01:13:42</span>
-            <span class="mobile">2026-05-13 01:13:42</span>
+            <span class="desktop">2026-05-13 01:42:58</span>
+            <span class="mobile">2026-05-13 01:42:58</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -705,6 +714,70 @@ body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navb
 <li><a href="/2024/11/01/%E5%8A%A0%E5%85%A5v.N.v%E6%9C%8D%E5%8A%A1%E5%99%A8/">加入 v.N.v 服务器</a></li>
 <li><a href="/2024/11/01/%E7%99%BB%E9%99%86%E5%99%A8%E4%B8%8B%E8%BD%BD/">CS1.5 登陆器下载</a></li>
 </ul>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "CS1.5 在 Win10 / Win11 上黑屏怎么办？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "OpenGL 1.x 接口在 Windows 10/11 桌面合成器（DWM）下被拦截。解决：右键 cstrike.exe 或 killercs.exe → 属性 → 兼容性 → 勾选以 Windows XP SP3 兼容模式运行 + 以管理员身份运行。还不行则用 KillerCS 登陆器内置的 OpenGL 兼容修复按钮，会装一个 opengl32.dll shim 到 cstrike 目录。仍然不行则在启动参数里加 -software 强制软件渲染。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "CS1.5 的 FPS 应该锁多少？越高越好吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不是越高越好。CS1.5 / 1.6 所在的 GoldSrc 引擎物理系统按 100 FPS 调校，Valve Developer Wiki 明确说明超过 100 FPS 会导致玩家移动（尤其是跳跃）明显变慢。最佳做法是锁在 100 FPS：控制台输入 fps_max 100，或职业选手圈常用的 fps_max 99.5（避免取整误差）。超过 1000 FPS 会让 GoldSrc 的 tickrate 紊乱。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "CS1.5 跑起来需要什么显卡？集显够吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "推荐用独立显卡。GTX 1060 / RX 580 及以上档位稳 100 FPS 毫无压力。老独显（GTX 750 / 950）大部分场景够用，但大地图多人同屏可能掉到 80-90 FPS。集显（Intel UHD / 核显）能跑起来但稳不住 100 FPS，不推荐长期用。双显卡笔记本要去 NVIDIA 控制面板把 cstrike.exe 的 OpenGL 渲染 GPU 手动指定为独显。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "CS1.5 里的鼠标 DPI 和灵敏度应该怎么调？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "从经典值起步：鼠标 DPI 调到 400，游戏内 sensitivity 2.5。这是 CS1.5 当年职业选手常用的档位（AWP 时代那批中国老枪手多在这个区间）。不顺手再微调：DPI 在 400-800 范围、sensitivity 在 1.5-3.0 范围内调整，直到 90 度转身的手腕幅度和你习惯的一致。注意 m_rawinput 是 CS:GO / CS2 才有的命令，CS1.5 没有，要关鼠标加速用启动参数 -noforcemparms -noforcemaccel。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "CS1.5 连不上服务器提示 Connection failed after 4 retries 怎么办？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "最常见原因是 UDP 端口被防火墙挡了。Half-Life / CS 的主端口是 UDP 27015，服务器列表查询和游戏流量都走 UDP，多实例服务器常用 27015-27030 范围内的其他端口。解决：Windows 防火墙 → 允许应用 → 添加 cstrike.exe 和 killercs.exe，公用和专用都勾上。检查路由器或公司/学校网络是否封 UDP 27015。如果是企业网络确认封了，用手机热点试一下验证是不是本机问题。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "CS1.5 进游戏几秒就闪退回桌面是什么问题？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "常见原因是 DEP（数据执行保护）拦截了 CS1.5 的老式内存调用。解决：控制面板 → 系统 → 高级系统设置 → 性能设置 → 数据执行保护 → 选为除下列选定程序之外的所有程序和服务启用 DEP → 添加 cstrike.exe 到例外列表 → 重启电脑。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "CS1.5 声音变成低质量杂音怎么修？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "原因是 CS1.5 时代用 22 kHz 采样率，和 Win10/11 默认的 48 kHz 不匹配。解决：控制面板 → 声音 → 你的扬声器 → 属性 → 高级 → 默认格式改为 16 位 22050 Hz 或 16 位 44100 Hz。"
+      }
+    }
+  ]
+}
+</script>
 
         </div>
 
@@ -719,7 +792,7 @@ body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navb
         
             <li>
                 <strong>更新于
-                    :</strong> 2026-05-13 01:13:42
+                    :</strong> 2026-05-13 01:42:58
             </li>
         
         <li>
