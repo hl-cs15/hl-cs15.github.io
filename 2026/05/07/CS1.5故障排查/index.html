@@ -39,7 +39,7 @@
 <meta property="og:description" content="CS1.5 在 Win10 &#x2F; Win11 上常见的黑屏、闪退、白屏、鼠标乱飞、不能联网等问题完整故障排查清单。20 年 CS1.5 老玩家维护的故障速查表。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-05-07T05:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-12T17:42:58.011Z">
+<meta property="article:modified_time" content="2026-05-12T18:13:36.343Z">
 <meta property="article:author" content="Ricky Killer">
 <meta property="article:tag" content="CS1.5">
 <meta property="article:tag" content="Win10">
@@ -488,8 +488,8 @@ body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navb
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2026-05-13 01:42:58</span>
-            <span class="mobile">2026-05-13 01:42:58</span>
+            <span class="desktop">2026-05-13 02:13:36</span>
+            <span class="mobile">2026-05-13 02:13:36</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -565,10 +565,10 @@ body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navb
 <h2 id="❗-黑屏类问题"><a href="#❗-黑屏类问题" class="headerlink" title="❗ 黑屏类问题"></a>❗ 黑屏类问题</h2><h3 id="症状-1：双击启动-→-屏幕黑了几秒-→-自动退回桌面"><a href="#症状-1：双击启动-→-屏幕黑了几秒-→-自动退回桌面" class="headerlink" title="症状 1：双击启动 → 屏幕黑了几秒 → 自动退回桌面"></a>症状 1：双击启动 → 屏幕黑了几秒 → 自动退回桌面</h3><p><strong>原因</strong>：OpenGL 1.x 接口在 Windows 10&#x2F;11 桌面合成器（DWM）下被拦截。</p>
 <p><strong>解决</strong>（按顺序试）：</p>
 <ol>
-<li>右键 <code>cstrike.exe</code>（或 KillerCS 登陆器的 <code>killercs.exe</code>）→ <strong>属性 → 兼容性 → 以 Windows XP SP3 兼容模式运行</strong></li>
-<li>同一个对话框 → <strong>以管理员身份运行</strong> 也勾上</li>
-<li>还不行：<strong>KillerCS 登陆器里有”OpenGL 兼容修复”按钮，点一下</strong>它会装一个 <code>opengl32.dll</code> shim 到 cstrike 目录</li>
-<li>仍然不行：在游戏启动参数里加 <code>-software</code>（强制 DirectX 软件渲染）</li>
+<li><strong>让 KillerCS 登陆器自动设兼容模式</strong> —— 首次通过 KillerCS 启动 CS1.5 时，登陆器会弹框问是否给 <code>cstrike.exe</code> 自动设 Windows 7 兼容模式，选”是”即可（登陆器会写一条 <code>HKCU\...\AppCompatFlags\Layers</code> 注册表给 <code>cstrike.exe</code>，值 <code>~ WIN7RTM</code>）。如果当时点了”否”，右键 <code>cstrike.exe</code> → 属性 → 兼容性 → 手动勾选”以 Windows 7 兼容模式运行” + “以管理员身份运行”也可以。</li>
+<li><strong>在登陆器里切换渲染模式</strong> —— KillerCS 支持 OpenGL 和 Direct3D 两种视频模式切换。默认 OpenGL 出问题的话，登陆器设置里切到 Direct3D 再启动，看是否正常。</li>
+<li><strong>仍然不行</strong>：在游戏启动参数里加 <code>-software</code>（强制软件渲染）。这是最后的保底方案，性能差但基本什么机器都能跑。</li>
+<li>再不行，进 QQ 群 <strong>659053685</strong> 发你的系统版本 + 显卡型号。</li>
 </ol>
 <h3 id="症状-2：能进主菜单但游戏内黑屏，只能听到音效"><a href="#症状-2：能进主菜单但游戏内黑屏，只能听到音效" class="headerlink" title="症状 2：能进主菜单但游戏内黑屏，只能听到音效"></a>症状 2：能进主菜单但游戏内黑屏，只能听到音效</h3><p><strong>原因</strong>：显卡驱动跟 OpenGL 1.x 接口配合问题。较新的 NVIDIA &#x2F; AMD 驱动有时会出现这种情况。</p>
 <p><strong>解决</strong>：</p>
@@ -724,7 +724,7 @@ body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navb
       "name": "CS1.5 在 Win10 / Win11 上黑屏怎么办？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "OpenGL 1.x 接口在 Windows 10/11 桌面合成器（DWM）下被拦截。解决：右键 cstrike.exe 或 killercs.exe → 属性 → 兼容性 → 勾选以 Windows XP SP3 兼容模式运行 + 以管理员身份运行。还不行则用 KillerCS 登陆器内置的 OpenGL 兼容修复按钮，会装一个 opengl32.dll shim 到 cstrike 目录。仍然不行则在启动参数里加 -software 强制软件渲染。"
+        "text": "OpenGL 1.x 接口在 Windows 10/11 桌面合成器（DWM）下被拦截。解决：首次用 KillerCS 登陆器启动 CS1.5 时，登陆器会弹框问是否给 cstrike.exe 自动设 Windows 7 兼容模式，选是即可（登陆器会给 cstrike.exe 写一条 HKCU 下的 AppCompatFlags\\Layers 注册表，值为 ~ WIN7RTM）。如果错过了弹框，也可以手动右键 cstrike.exe → 属性 → 兼容性 → 勾以 Windows 7 兼容模式运行 + 以管理员身份运行。还不行的话在 KillerCS 登陆器设置里把视频模式从 OpenGL 切到 Direct3D 再启动。最后的保底方案是在启动参数里加 -software 强制软件渲染。"
       }
     },
     {
@@ -792,7 +792,7 @@ body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navb
         
             <li>
                 <strong>更新于
-                    :</strong> 2026-05-13 01:42:58
+                    :</strong> 2026-05-13 02:13:36
             </li>
         
         <li>
