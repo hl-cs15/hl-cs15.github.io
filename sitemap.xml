@@ -101,7 +101,7 @@
 
   
   <url>
-    <loc>https://hl-cs15.github.io/tags/CS%E5%AF%B9%E6%AF%94/</loc>
+    <loc>https://hl-cs15.github.io/tags/%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -109,6 +109,34 @@
   
   <url>
     <loc>https://hl-cs15.github.io/tags/CS1-5/</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hl-cs15.github.io/tags/Win10/</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hl-cs15.github.io/tags/Win11/</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hl-cs15.github.io/tags/%E5%85%BC%E5%AE%B9%E6%80%A7/</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hl-cs15.github.io/tags/CS%E5%AF%B9%E6%AF%94/</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -150,20 +178,6 @@
   </url>
   
   <url>
-    <loc>https://hl-cs15.github.io/tags/Win10/</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hl-cs15.github.io/tags/Win11/</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://hl-cs15.github.io/tags/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -172,20 +186,6 @@
   
   <url>
     <loc>https://hl-cs15.github.io/tags/%E5%8F%8D%E6%81%90%E7%B2%BE%E8%8B%B1/</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hl-cs15.github.io/tags/%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/</loc>
-    <lastmod>2026-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hl-cs15.github.io/tags/%E5%85%BC%E5%AE%B9%E6%80%A7/</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -222,14 +222,14 @@
 
   
   <url>
-    <loc>https://hl-cs15.github.io/categories/%E8%AF%84%E6%B5%8B/</loc>
+    <loc>https://hl-cs15.github.io/categories/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://hl-cs15.github.io/categories/%E6%95%99%E7%A8%8B/</loc>
+    <loc>https://hl-cs15.github.io/categories/%E8%AF%84%E6%B5%8B/</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
