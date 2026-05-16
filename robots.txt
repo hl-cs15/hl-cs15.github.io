@@ -85,3 +85,8 @@ Disallow: /
 
 # ===== Sitemap =====
 Sitemap: https://hl-cs15.github.io/sitemap.xml
+
+# ===== IndexNow =====
+# IndexNow protocol — Bing/Yandex/Seznam/Naver get instant change notifications.
+# Key file: /c8fa0258093ec84be0f704a36bd6fcac.txt verifies domain ownership.
+# Reference: https://www.indexnow.org/
