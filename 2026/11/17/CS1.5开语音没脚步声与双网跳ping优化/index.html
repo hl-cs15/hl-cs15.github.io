@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="CS1.5开语音没脚步声,CS1.5开黑声音变小,CS1.5语音压低游戏声音,CS1.5听不清脚步声,CS1.5跳ping,CS1.5插网线还跳ping,CS1.5双网卡优先有线,CS1.5双网优先走网线,CS1.5网卡优化,CS1.5联机微卡顿,反恐精英1.5跳ping,KillerCS 6.6,KillerCS,KillerCS登录器,KillerCS登陆器,CS1.5登陆器">
+    
+    <meta name="author" content="KillerCS">
+    <!--
+        REMOVED 2026-05-11:
+        Default Redefine ships with preconnects to fonts.googleapis.com and
+        fonts.gstatic.com on every page. We don't actually use Google Fonts
+        anywhere on this site — all our fonts (Chillax / Geist / GeistMono /
+        FontAwesome) are already locally hosted under /fonts/ and /fontawesome/.
+
+        Keeping these preconnects was actively harmful for our user base:
+        - DNS query + TLS handshake to two domains the page never actually loads
+        - Mainland China users get 1-3s timeout on fonts.googleapis.com (GFW
+          intermittently blocks it), which delays LCP and harms perceived speed
+        - Wasted resource-priority budget that should go to local assets
+
+        If a future theme upgrade adds back resource hints, audit first whether
+        the page actually uses those origins. Don't preconnect speculatively.
+    -->
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://hl-cs15.github.io/2026/11/17/cs1.5开语音没脚步声与双网跳ping优化/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="和队友开黑语音一说话 CS1.5 脚步声就突然变小？明明插着网线但连着 Wi-Fi 还是间歇跳 Ping 微卡顿？KillerCS 登录器（也写作登陆器）v6.6「一键优化」新增语音通话不压低游戏声音、双网优先走网线与网卡省电自动关闭，可随时还原。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS1.5 开语音听不清脚步声、插网线还跳 Ping？KillerCS 6.6 联机与音频实战优化">
+<meta property="og:url" content="https://hl-cs15.github.io/2026/11/17/CS1.5%E5%BC%80%E8%AF%AD%E9%9F%B3%E6%B2%A1%E8%84%9A%E6%AD%A5%E5%A3%B0%E4%B8%8E%E5%8F%8C%E7%BD%91%E8%B7%B3ping%E4%BC%98%E5%8C%96/index.html">
+<meta property="og:site_name" content="KillerCS · CS1.5 老玩家博客">
+<meta property="og:description" content="和队友开黑语音一说话 CS1.5 脚步声就突然变小？明明插着网线但连着 Wi-Fi 还是间歇跳 Ping 微卡顿？KillerCS 登录器（也写作登陆器）v6.6「一键优化」新增语音通话不压低游戏声音、双网优先走网线与网卡省电自动关闭，可随时还原。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hl-cs15.github.io/images/posts/killercs-v66-optimize-net.png">
+<meta property="og:image" content="https://hl-cs15.github.io/images/posts/killercs-v66-esports-ingame.png">
+<meta property="article:published_time" content="2026-11-17T03:30:00.000Z">
+<meta property="article:modified_time" content="2026-11-17T03:30:00.000Z">
+<meta property="article:author" content="KillerCS">
+<meta property="article:tag" content="CS1.5">
+<meta property="article:tag" content="游戏优化">
+<meta property="article:tag" content="反恐精英">
+<meta property="article:tag" content="网络">
+<meta property="article:tag" content="教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hl-cs15.github.io/images/posts/killercs-v66-optimize-net.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/avatar-256.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar-256.png">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/avatar-256.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+            CS1.5 开语音听不清脚步声、插网线还跳 Ping？KillerCS 6.6 联机与音频实战优化 | KillerCS · CS1.5 老玩家博客
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+        
+            
+    
+            
+    
+            
+                
+                    <meta property="og:image" content="https://hl-cs15.github.io/images/banner.webp">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta property="og:image:alt" content="KillerCS · CS1.5 老玩家博客">
+
+                
+    
+            
+                
+                    <link rel="preload" href="/images/banner.webp" as="image" fetchpriority="high">
+
+                
+    
+            
+                
+                    <style id="ricky-navbar-contrast-fix">
+/* Home page, navbar not shrunk yet (still over dark banner).
+   Force white text + shadow on nav elements for banner contrast.
+   Once body.navbar-shrink is added (scroll past banner), these
+   rules stop matching and the theme's default dark text returns. */
+
+/* logo title (left side) */
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .logo-title,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .logo-title h1 {
+  color: #fff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+}
+/* desktop menu text + icons + chevrons */
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .desktop .navbar-list .navbar-item,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .desktop .navbar-list .navbar-item a,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .desktop .navbar-list .navbar-item i,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .desktop .navbar-list .navbar-item .fa-chevron-down {
+  color: #fff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.55);
+}
+/* search icon */
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .desktop .navbar-list .navbar-item.search i {
+  color: #fff !important;
+}
+/* mobile hamburger bars + icons */
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .mobile .icon-item,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .mobile .icon-item i {
+  color: #fff !important;
+}
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .mobile .navbar-bar .navbar-bar-middle,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .mobile .navbar-bar .navbar-bar-middle::before,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .mobile .navbar-bar .navbar-bar-middle::after {
+  background: #fff !important;
+}
+/* active 下划线在首页也保持白色 */
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navbar-item a::after,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navbar-item .active::after {
+  background: #fff !important;
+}
+</style>
+
+                
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"hl-cs15.github.io","root":"/","language":"zh-CN"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/banner.webp","dark":"/images/banner.webp"},"title":"KillerCS · CS1.5 老玩家博客","subtitle":{"text":[],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.7.3","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"下载登录器":{"path":"https://killercs.com","icon":"fa-regular fa-download"},"加入服务器":{"path":"/2024/11/01/加入v.N.v服务器/","icon":"fa-regular fa-server"},"加入老玩家社群":{"path":"https://qm.qq.com/cgi-bin/qm/qr?k=7oaUPkEkGCiF0mBnkqyLoCyNmod5o-q4&jump_from=webapi&authKey=og4uKWQwuGCDBZmv9b0x/EKBtPzv0F3T3Qkuwq8in35yt7jpv7lmOd419jcDTAgg","icon":"fa-regular fa-comments"},"联系":{"path":"/2024/11/01/联系我/","icon":"fa-regular fa-envelope"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container flex flex-col justify-between min-h-dvh">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                KillerCS · CS1.5 老玩家博客
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   target="_blank" rel="noopener" href="https://killercs.com"
+                                        >
+                                    <i class="fa-regular fa-download fa-fw"></i>
+                                    下载登录器
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/2024/11/01/%E5%8A%A0%E5%85%A5v.N.v%E6%9C%8D%E5%8A%A1%E5%99%A8/"
+                                        >
+                                    <i class="fa-regular fa-server fa-fw"></i>
+                                    加入服务器
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   target="_blank" rel="noopener" href="https://qm.qq.com/cgi-bin/qm/qr?k=7oaUPkEkGCiF0mBnkqyLoCyNmod5o-q4&amp;jump_from=webapi&amp;authKey=og4uKWQwuGCDBZmv9b0x/EKBtPzv0F3T3Qkuwq8in35yt7jpv7lmOd419jcDTAgg"
+                                        >
+                                    <i class="fa-regular fa-comments fa-fw"></i>
+                                    加入老玩家社群
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/2024/11/01/%E8%81%94%E7%B3%BB%E6%88%91/"
+                                        >
+                                    <i class="fa-regular fa-envelope fa-fw"></i>
+                                    联系
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           target="_blank" rel="noopener" href="https://killercs.com"
+                        >
+                            <span>
+                                下载登录器
+                            </span>
+                            
+                                <i class="fa-regular fa-download fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/2024/11/01/%E5%8A%A0%E5%85%A5v.N.v%E6%9C%8D%E5%8A%A1%E5%99%A8/"
+                        >
+                            <span>
+                                加入服务器
+                            </span>
+                            
+                                <i class="fa-regular fa-server fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           target="_blank" rel="noopener" href="https://qm.qq.com/cgi-bin/qm/qr?k=7oaUPkEkGCiF0mBnkqyLoCyNmod5o-q4&amp;jump_from=webapi&amp;authKey=og4uKWQwuGCDBZmv9b0x/EKBtPzv0F3T3Qkuwq8in35yt7jpv7lmOd419jcDTAgg"
+                        >
+                            <span>
+                                加入老玩家社群
+                            </span>
+                            
+                                <i class="fa-regular fa-comments fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/2024/11/01/%E8%81%94%E7%B3%BB%E6%88%91/"
+                        >
+                            <span>
+                                联系
+                            </span>
+                            
+                                <i class="fa-regular fa-envelope fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">29</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">3</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">20</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                <div class="w-full flex items-center pt-6 justify-start">
+                    <h1 class="article-title-regular text-second-text-color font-semibold px-2 sm:px-6 md:px-8 py-3">CS1.5 开语音听不清脚步声、插网线还跳 Ping？KillerCS 6.6 联机与音频实战优化</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/avatar-256.png" alt="KillerCS 头像">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">KillerCS</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2026-11-17 11:30</span>
+        <span class="mobile">2026-11-17 11:30</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2026-11-17 11:30</span>
+            <span class="mobile">2026-11-17 11:30</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E6%95%99%E7%A8%8B/">教程</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/CS1-5/">CS1.5</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%B8%B8%E6%88%8F%E4%BC%98%E5%8C%96/">游戏优化</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E5%8F%8D%E6%81%90%E7%B2%BE%E8%8B%B1/">反恐精英</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E7%BD%91%E7%BB%9C/">网络</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%95%99%E7%A8%8B/">教程</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <h2 id="一句话答案"><a href="#一句话答案" class="headerlink" title="一句话答案"></a>一句话答案</h2><blockquote>
+<p>很多老哥千兆宽带、插着网线、电脑配置也不差，打 CS 1.5 混战还是碰上两件怪事：<strong>一是跟队友开语音软件报点时，游戏里的脚步声和大狙声突然小了一大截</strong>；<strong>二是明明插了网线，延迟还是隔一会儿跳一下</strong>。打开 <a class="link"   target="_blank" rel="noopener" href="https://killercs.com/" >KillerCS 登录器 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>（v6.6）的 <strong>「一键优化」</strong>，这两项现在都能直接扫出来一键修好：<strong>「语音通话不压低游戏声音」</strong> 让开黑报点时脚步声照常清晰；<strong>「双网优先走网线」</strong> 在不断开 Wi-Fi 的前提下让对战流量优先走有线网卡，配合网卡五项低延迟设置与首页 <strong>「电竞模式」</strong>，把联机细节拉满。</p>
+</blockquote>
+<hr>
+<h2 id="痛点一：一开语音软件，CS-1-5-的脚步声就被压没了"><a href="#痛点一：一开语音软件，CS-1-5-的脚步声就被压没了" class="headerlink" title="痛点一：一开语音软件，CS 1.5 的脚步声就被压没了"></a>痛点一：一开语音软件，CS 1.5 的脚步声就被压没了</h2><p>打混战或者残局 1v2，最靠耳朵听B洞、A小道的脚步声和换弹声。不少兄弟开着 YY、KOOK、微信语音或者 QQ 语音跟老战友边聊边打，只要语音里有人说话，CS 1.5 的游戏音量就像被人拧小了一样，脚步声根本听不见。</p>
+<h3 id="原因是什么？"><a href="#原因是什么？" class="headerlink" title="原因是什么？"></a>原因是什么？</h3><p>Windows 声音设置里有一条默认的「通信活动」规则：<strong>当系统检测到正在进行语音通话时，默认把其他所有程序的声音自动降低 80%</strong>。这个开关藏在很深的传统声音控制面板里，很多重装过 Win10 &#x2F; Win11 的电脑一直开着它。</p>
+<h3 id="一键解决"><a href="#一键解决" class="headerlink" title="一键解决"></a>一键解决</h3><p>不用再去控制面板一层层翻选项卡：打开 KillerCS 登录器 <strong>「一键优化」</strong>，扫描列表里的 <strong>「语音通话不压低游戏声音」</strong> 会直接检查这项设置。如果还是系统默认的压低八成，勾选后点 <strong>「一键修复」</strong> 即可自动改成「不执行任何操作」——队友报点归报点，你耳机里的脚步声、拆包声一丝不减。想恢复原样随时点「还原此项」。</p>
+<hr>
+<h2 id="痛点二：明明插着网线，为什么对战还会莫名跳-Ping？"><a href="#痛点二：明明插着网线，为什么对战还会莫名跳-Ping？" class="headerlink" title="痛点二：明明插着网线，为什么对战还会莫名跳 Ping？"></a>痛点二：明明插着网线，为什么对战还会莫名跳 Ping？</h2><p>现在的台式机主板大多自带 Wi-Fi 天线，游戏本更是经常插着扩展坞网线的同时还连着家里的无线网。很多玩家以为「插上网线系统肯定走网线」，实际上不一定：</p>
+<ul>
+<li>当有线网卡和无线网卡同时在线时，有时系统的路由优先级会让数据包误走 Wi-Fi；</li>
+<li>无线网卡哪怕信号满格，也会周期性扫描周围信道，体现在 CS 1.5 里就是平时 15ms，隔十几秒突然窜一下黄字甚至红字、人物小顿一下；</li>
+<li>另外，现代网卡驱动默认开着一堆面向办公节能的开关（<strong>中断调节、流控、节能以太网、网卡省电、关机唤醒</strong>），网卡为了攒包省电，收发包节奏不如全速状态跟手。</li>
+</ul>
+<h3 id="一键解决：「双网优先走网线」-网卡五项自动调优"><a href="#一键解决：「双网优先走网线」-网卡五项自动调优" class="headerlink" title="一键解决：「双网优先走网线」+ 网卡五项自动调优"></a>一键解决：「双网优先走网线」+ 网卡五项自动调优</h3><p>打开 KillerCS 登录器 v6.6 的 <strong>「一键优化」</strong>，第一组就是 <strong>「网络」</strong>：</p>
+<picture>
+  <source srcset="/images/posts/killercs-v66-optimize-net.webp" type="image/webp">
+  <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/posts/killercs-v66-optimize-net.png"
+                      alt="KillerCS 登录器 v6.6 一键优化网络分组：支持双网优先走网线、关闭中断调节、关闭流控、关闭节能以太网、关闭网卡省电、关闭关机唤醒" width="762" height="695" loading="eager" style="width:100%;max-width:100%;height:auto;border-radius:10px;margin:0.75rem 0 1rem;display:block;box-shadow:0 4px 20px rgba(0,0,0,0.22);"
+                >
+</picture>
+
+<p><em>上图：v6.6「一键优化」网络分组——「双网优先走网线」与五项网卡省电&#x2F;攒包开关全部支持扫描与单项还原。</em></p>
+<ul>
+<li><strong>双网优先走网线</strong>：当检测到你同时连着网线与 Wi-Fi、却没有优先走网线时，点「一键修复」就会自动调高有线网卡的优先级——<strong>不需要拔掉或断开 Wi-Fi</strong>，局域网无线投屏、内网传文件照用，CS 对战稳稳走网线。</li>
+<li><strong>网卡五项一键关闭</strong>（关闭中断调节、关闭流控、关闭节能以太网、关闭网卡省电、关闭关机唤醒）：早期版本这几项只能看说明自己去设备管理器改，现在点「一键修复」就能自动改好（改完网卡会像设备管理器点确定那样短暂重连一两秒，属正常现象；每一项都能单独点「还原此项」改回优化前）。</li>
+<li><strong>游戏内网络参数同步校正</strong>：配合「一键优化」里的「游戏弹道优化」，把 <code>rate</code>、<code>cl_updaterate</code>、<code>cl_cmdrate</code>、<code>fps_max</code> 一并配齐（这几个参数管什么可见 <a href="/2026/06/23/CS1.5%E8%81%94%E6%9C%BA%E5%8D%A1%E9%A1%BF%E7%BD%91%E7%BB%9C%E5%8F%82%E6%95%B0/">CS1.5 网络参数详解</a>）。</li>
+</ul>
+<blockquote>
+<p>实话实说：客户端网络与网卡优化解决的是「本机配置不当或走错无线链路」带来的跳 Ping 和微卡顿；如果某台服务器本身物理距离远，还是以选低延迟服务器为主。</p>
+</blockquote>
+<hr>
+<h2 id="进阶一步：打开「电竞模式」，减少后台通知与降频干扰"><a href="#进阶一步：打开「电竞模式」，减少后台通知与降频干扰" class="headerlink" title="进阶一步：打开「电竞模式」，减少后台通知与降频干扰"></a>进阶一步：打开「电竞模式」，减少后台通知与降频干扰</h2><p>调完网络和声音，开打前别忘了把登录器首页的 <strong>「电竞模式」</strong> 打开：</p>
+<p><strong>CS1.5电竞级别优化，开启后可以大幅提升游戏性能，FPS更稳，键鼠更跟手。</strong></p>
+<p>点旁边的齿轮打开 <strong>「电竞模式设置」</strong>，除了把 CPU 与电源管理拉满、关闭 USB 选择性暂停防止键鼠休眠之外，还能看到针对对局体验的细节开关：</p>
+<picture>
+  <source srcset="/images/posts/killercs-v66-esports-ingame.webp" type="image/webp">
+  <img src="/images/posts/killercs-v66-esports-ingame.png" alt="KillerCS 电竞模式设置对局期分组：关闭无输入时前台降级、关闭系统通知、进程优先级、I/O 优先级、游戏进程省电节流关闭、进程处理器关联、主线程首选处理器" width="762" height="707" loading="lazy" style="width:100%;max-width:100%;height:auto;border-radius:10px;margin:0.75rem 0 1rem;display:block;box-shadow:0 2px 16px rgba(0,0,0,0.2);">
+</picture>
+
+<p><em>上图：「电竞模式设置」下半部分——涵盖关闭系统通知、关闭无输入时前台降级，以及对局期的进程优先级、I&#x2F;O 优先级、游戏进程省电节流关闭、进程处理器关联与主线程首选处理器。</em></p>
+<p>不玩的时候把首页「电竞模式」关掉，所有系统设置即刻还原；万一笔记本开着系统的「节电模式」顶住了性能，v6.6 登录器首页也会醒目提醒你关掉节电模式。</p>
+<hr>
+<h2 id="现在就去试试手感"><a href="#现在就去试试手感" class="headerlink" title="现在就去试试手感"></a>现在就去试试手感</h2><ol>
+<li>到 <a class="link"   target="_blank" rel="noopener" href="https://killercs.com/" >killercs.com <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 下载最新版 KillerCS 登录器（v6.6，约 8 MB 免安装）；</li>
+<li>打开 <strong>「一键优化」</strong>，把网络、声音、手感、启动兼容红点一次清零；</li>
+<li>打开首页 <strong>「电竞模式」</strong> 与 <strong>「脚本保护」</strong>；</li>
+<li>去 <a class="link"   target="_blank" rel="noopener" href="https://killercs.com/live.html" >社区实况 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 看一眼 <code>vNv</code>、<code>ChinaTeam</code>、<code>Ricky</code>、<code>xDL</code> 各服实时人数与难度系数，挑个延迟最低的服开干，打完混战还能去 <a class="link"   target="_blank" rel="noopener" href="https://killercs.com/ladder.html" >混战跨服天梯 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 查战绩！</li>
+</ol>
+<hr>
+<h2 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h2><ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://killercs.com/" >KillerCS 官方下载站 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> · <a class="link"   target="_blank" rel="noopener" href="https://killercs.com/faq.html" >常见问题 FAQ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> · <a class="link"   target="_blank" rel="noopener" href="https://killercs.com/changelog.html" >版本更新日志 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li><a href="/2026/11/17/CS1.5%E6%80%8E%E4%B9%88%E5%8A%A0%E6%9C%BA%E5%99%A8%E4%BA%BAYaPB/">CS1.5 怎么加机器人？一键安装 YaPB 单机机器人教程</a></li>
+<li><a href="/2026/11/17/CS1.5%E9%97%AA%E9%80%80%E6%89%93%E4%B8%8D%E5%BC%80%E4%B8%80%E9%94%AE%E4%BF%AE%E5%A4%8D/">CS1.5 闪退、崩溃、打不开怎么办？Win10 &#x2F; Win11 一键修复终极神器</a></li>
+<li><a href="/2026/11/17/CS1.5%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD%E5%AF%B9%E6%AF%94%E4%B8%8E%E8%84%9A%E6%9C%AC%E4%BF%9D%E6%8A%A4/">CS1.5 脚本被服务器乱改怎么办？本地脚本备份、双栏差异对比与脚本保护</a></li>
+<li><a href="/2026/08/28/CS1.5%E7%94%B5%E7%AB%9E%E6%A8%A1%E5%BC%8F/">CS1.5 电竞模式图文详解</a></li>
+<li><a href="/2026/06/23/CS1.5%E8%81%94%E6%9C%BA%E5%8D%A1%E9%A1%BF%E7%BD%91%E7%BB%9C%E5%8F%82%E6%95%B0/">CS1.5 联机卡顿、延迟高？rate &#x2F; updaterate &#x2F; cmdrate 网络参数理解</a></li>
+</ul>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "CS1.5 开语音跟队友说话时游戏脚步声突然变小怎么解决？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "这是因为 Windows 默认在检测到语音通话时自动把其他声音压低 80%。打开 KillerCS 登录器（https://killercs.com）的「一键优化」，勾选「语音通话不压低游戏声音」点「一键修复」，即可让开黑语音时脚步声和枪声保持原音量，随时可还原。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "电脑同时插着网线和连着 Wi-Fi，打 CS1.5 还是跳 Ping 怎么办？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "双网同时连接时系统可能默认把流量走到了 Wi-Fi 上导致无线扫信道跳 Ping。打开 KillerCS 登录器 v6.6「一键优化」，在「网络」分组勾选「双网优先走网线」点「一键修复」，无需断开 Wi-Fi 即可让对战流量优先走网线。"
+      }
+    }
+  ]
+}
+</script>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> CS1.5 开语音听不清脚步声、插网线还跳 Ping？KillerCS 6.6 联机与音频实战优化</li>
+        <li><strong>作者:</strong> KillerCS</li>
+        <li><strong>创建于
+                :</strong> 2026-11-17 11:30:00</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2026-11-17 11:30:00
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://hl-cs15.github.io/2026/11/17/CS1.5开语音没脚步声与双网跳ping优化/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/CS1-5/">#CS1.5</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/%E6%B8%B8%E6%88%8F%E4%BC%98%E5%8C%96/">#游戏优化</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/%E5%8F%8D%E6%81%90%E7%B2%BE%E8%8B%B1/">#反恐精英</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/%E7%BD%91%E7%BB%9C/">#网络</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/%E6%95%99%E7%A8%8B/">#教程</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2026/11/17/CS1.5%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD%E5%AF%B9%E6%AF%94%E4%B8%8E%E8%84%9A%E6%9C%AC%E4%BF%9D%E6%8A%A4/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">CS1.5 脚本被服务器乱改怎么办？本地脚本备份、双栏差异对比与脚本保护全攻略</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">目录</div>
+        <div class="page-title">CS1.5 开语音听不清脚步声、插网线还跳 Ping？KillerCS 6.6 联机与音频实战优化</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E5%8F%A5%E8%AF%9D%E7%AD%94%E6%A1%88"><span class="nav-text">一句话答案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%97%9B%E7%82%B9%E4%B8%80%EF%BC%9A%E4%B8%80%E5%BC%80%E8%AF%AD%E9%9F%B3%E8%BD%AF%E4%BB%B6%EF%BC%8CCS-1-5-%E7%9A%84%E8%84%9A%E6%AD%A5%E5%A3%B0%E5%B0%B1%E8%A2%AB%E5%8E%8B%E6%B2%A1%E4%BA%86"><span class="nav-text">痛点一：一开语音软件，CS 1.5 的脚步声就被压没了</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">原因是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E9%94%AE%E8%A7%A3%E5%86%B3"><span class="nav-text">一键解决</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%97%9B%E7%82%B9%E4%BA%8C%EF%BC%9A%E6%98%8E%E6%98%8E%E6%8F%92%E7%9D%80%E7%BD%91%E7%BA%BF%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E5%AF%B9%E6%88%98%E8%BF%98%E4%BC%9A%E8%8E%AB%E5%90%8D%E8%B7%B3-Ping%EF%BC%9F"><span class="nav-text">痛点二：明明插着网线，为什么对战还会莫名跳 Ping？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E9%94%AE%E8%A7%A3%E5%86%B3%EF%BC%9A%E3%80%8C%E5%8F%8C%E7%BD%91%E4%BC%98%E5%85%88%E8%B5%B0%E7%BD%91%E7%BA%BF%E3%80%8D-%E7%BD%91%E5%8D%A1%E4%BA%94%E9%A1%B9%E8%87%AA%E5%8A%A8%E8%B0%83%E4%BC%98"><span class="nav-text">一键解决：「双网优先走网线」+ 网卡五项自动调优</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6%E4%B8%80%E6%AD%A5%EF%BC%9A%E6%89%93%E5%BC%80%E3%80%8C%E7%94%B5%E7%AB%9E%E6%A8%A1%E5%BC%8F%E3%80%8D%EF%BC%8C%E5%87%8F%E5%B0%91%E5%90%8E%E5%8F%B0%E9%80%9A%E7%9F%A5%E4%B8%8E%E9%99%8D%E9%A2%91%E5%B9%B2%E6%89%B0"><span class="nav-text">进阶一步：打开「电竞模式」，减少后台通知与降频干扰</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%B0%E5%9C%A8%E5%B0%B1%E5%8E%BB%E8%AF%95%E8%AF%95%E6%89%8B%E6%84%9F"><span class="nav-text">现在就去试试手感</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E9%98%85%E8%AF%BB"><span class="nav-text">相关阅读</span></a></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2026&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">KillerCS</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共撰写了 20 篇文章
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+            
+                
+        
+                
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="" alt="放大查看图片">
+</div>
+
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+    
+<script src="/js/libs/anime.min.js"></script>
+
+
+
+
+
+    
+<script src="/js/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+</body>
+</html>
