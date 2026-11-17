@@ -54,7 +54,7 @@
     <!--- Icon Part-->
     <link rel="icon" type="image/png" href="/images/avatar-256.png" sizes="192x192">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar-256.png">
-    <meta name="theme-color" content="#A31F34">
+    <meta name="theme-color" content="#D95300">
     <link rel="shortcut icon" href="/images/avatar-256.png">
     <!--- Page Info-->
     
@@ -93,30 +93,21 @@
             
                 
                     <style id="ricky-navbar-contrast-fix">
-/* Home page, navbar not shrunk yet (still over dark banner).
-   Force white text + shadow on nav elements for banner contrast.
-   Once body.navbar-shrink is added (scroll past banner), these
-   rules stop matching and the theme's default dark text returns. */
-
-/* logo title (left side) */
 body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .logo-title,
 body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .logo-title h1 {
   color: #fff !important;
   text-shadow: 0 1px 2px rgba(0,0,0,.5);
 }
-/* desktop menu text + icons + chevrons */
 body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .desktop .navbar-list .navbar-item,
-body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .desktop .navbar-list .navbar-item a,
-body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .desktop .navbar-list .navbar-item i,
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .desktop .navbar-list .navbar-item a:not([href="https://killercs.com"]),
+body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .desktop .navbar-list .navbar-item a:not([href="https://killercs.com"]) i,
 body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .desktop .navbar-list .navbar-item .fa-chevron-down {
   color: #fff !important;
   text-shadow: 0 1px 2px rgba(0,0,0,.55);
 }
-/* search icon */
 body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .desktop .navbar-list .navbar-item.search i {
   color: #fff !important;
 }
-/* mobile hamburger bars + icons */
 body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .mobile .icon-item,
 body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .mobile .icon-item i {
   color: #fff !important;
@@ -126,7 +117,6 @@ body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .righ
 body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .right .mobile .navbar-bar .navbar-bar-middle::after {
   background: #fff !important;
 }
-/* active 下划线在首页也保持白色 */
 body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navbar-item a::after,
 body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navbar-item .active::after {
   background: #fff !important;
@@ -162,7 +152,7 @@ body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navb
 
     <script id="hexo-configurations">
     window.config = {"hostname":"hl-cs15.github.io","root":"/","language":"zh-CN"};
-    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/banner.webp","dark":"/images/banner.webp"},"title":"KillerCS · CS1.5 老玩家博客","subtitle":{"text":[],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.7.3","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"下载登录器":{"path":"https://killercs.com","icon":"fa-regular fa-download"},"加入服务器":{"path":"/2024/11/01/加入v.N.v服务器/","icon":"fa-regular fa-server"},"加入老玩家社群":{"path":"https://qm.qq.com/cgi-bin/qm/qr?k=7oaUPkEkGCiF0mBnkqyLoCyNmod5o-q4&jump_from=webapi&authKey=og4uKWQwuGCDBZmv9b0x/EKBtPzv0F3T3Qkuwq8in35yt7jpv7lmOd419jcDTAgg","icon":"fa-regular fa-comments"},"联系":{"path":"/2024/11/01/联系我/","icon":"fa-regular fa-envelope"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#D95300","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"static","image":{"light":"/images/banner.webp","dark":"/images/banner.webp"},"title":"KillerCS · CS1.5 老玩家博客","subtitle":{"text":["回到 2002 年的 CS 1.5 · 联机教程 · 一键优化 · 混战天梯指南"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":45,"backing_speed":40,"starting_delay":200,"backing_delay":1500,"loop":false,"smart_backspace":true},"text_color":{"light":"#ffffff","dark":"#f3f1ec"},"text_style":{"title_size":"2.3rem","subtitle_size":"1.05rem","line_height":1.25},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.7.3","navbar":{"auto_hide":false,"color":{"left":"#ffffff","right":"#ffffff","transparency":88},"width":{"home":"1180px","pages":"1040px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"下载登录器":{"path":"https://killercs.com","icon":"fa-solid fa-download"},"社区实况":{"path":"https://killercs.com/live.html","icon":"fa-solid fa-signal"},"混战天梯":{"path":"https://killercs.com/ladder.html","icon":"fa-solid fa-trophy"},"加入服务器":{"path":"/2024/11/01/加入v.N.v服务器/","icon":"fa-solid fa-server"},"加入老玩家社群":{"path":"https://qm.qq.com/cgi-bin/qm/qr?k=7oaUPkEkGCiF0mBnkqyLoCyNmod5o-q4&jump_from=webapi&authKey=og4uKWQwuGCDBZmv9b0x/EKBtPzv0F3T3Qkuwq8in35yt7jpv7lmOd419jcDTAgg","icon":"fa-regular fa-comments"},"联系":{"path":"/2024/11/01/联系我/","icon":"fa-regular fa-envelope"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"info","announcement":"专注 CS 1.5 联机、一键优化与老玩家实战指南","show_on_mobile":true,"links":{"官方下载站":{"path":"https://killercs.com","icon":"fa-solid fa-download"},"社区实况":{"path":"https://killercs.com/live.html","icon":"fa-solid fa-signal"},"混战天梯总榜":{"path":"https://killercs.com/ladder.html","icon":"fa-solid fa-trophy"},"全部文章归档":{"path":"/archives","icon":"fa-regular fa-folder-open"}}},"article_date_format":"YYYY-MM-DD","excerpt_length":145,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":4}},"footerStart":"2022/8/17 11:45:14"};
     window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
     window.data = {"masonry":false};
   </script>
@@ -184,6 +174,17 @@ body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navb
     
     
     
+    <!--
+        ADDED 2026-11-17 (KillerCS site-level typography & visual polish):
+        Loaded AFTER style.css and assets/build/styles.css because theme.inject.head
+        renders BEFORE style.css (line 96 above) and would lose cascade order without
+        excessive !important hacks. All custom tokens, heading hierarchy fixes (Redefine
+        default markdown h2=2.5rem exceeded post h1=2rem), screenshot framing, and
+        brand color overrides live in source/css/killercs-polish.css.
+    -->
+    
+<link rel="stylesheet" href="/css/killercs-polish.css">
+
 </head>
 
 
@@ -250,8 +251,42 @@ body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navb
                                 <a class=""
                                    target="_blank" rel="noopener" href="https://killercs.com"
                                         >
-                                    <i class="fa-regular fa-download fa-fw"></i>
+                                    <i class="fa-solid fa-download fa-fw"></i>
                                     下载登录器
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   target="_blank" rel="noopener" href="https://killercs.com/live.html"
+                                        >
+                                    <i class="fa-solid fa-signal fa-fw"></i>
+                                    社区实况
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   target="_blank" rel="noopener" href="https://killercs.com/ladder.html"
+                                        >
+                                    <i class="fa-solid fa-trophy fa-fw"></i>
+                                    混战天梯
                                     
                                 </a>
 
@@ -267,7 +302,7 @@ body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navb
                                 <a class=""
                                    href="/2024/11/01/%E5%8A%A0%E5%85%A5v.N.v%E6%9C%8D%E5%8A%A1%E5%99%A8/"
                                         >
-                                    <i class="fa-regular fa-server fa-fw"></i>
+                                    <i class="fa-solid fa-server fa-fw"></i>
                                     加入服务器
                                     
                                 </a>
@@ -359,7 +394,47 @@ body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navb
                                 下载登录器
                             </span>
                             
-                                <i class="fa-regular fa-download fa-sm fa-fw"></i>
+                                <i class="fa-solid fa-download fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           target="_blank" rel="noopener" href="https://killercs.com/live.html"
+                        >
+                            <span>
+                                社区实况
+                            </span>
+                            
+                                <i class="fa-solid fa-signal fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           target="_blank" rel="noopener" href="https://killercs.com/ladder.html"
+                        >
+                            <span>
+                                混战天梯
+                            </span>
+                            
+                                <i class="fa-solid fa-trophy fa-sm fa-fw"></i>
                             
                         </a>
                         
@@ -379,7 +454,7 @@ body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navb
                                 加入服务器
                             </span>
                             
-                                <i class="fa-regular fa-server fa-sm fa-fw"></i>
+                                <i class="fa-solid fa-server fa-sm fa-fw"></i>
                             
                         </a>
                         
@@ -429,6 +504,39 @@ body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navb
             
 
             
+            
+                
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           target="_blank" rel="noopener" href="https://killercs.com"
+                        >
+                            <span>官方下载站</span>
+                            <i class="fa-solid fa-download fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+                    
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           target="_blank" rel="noopener" href="https://killercs.com/ladder.html"
+                        >
+                            <span>混战天梯总榜</span>
+                            <i class="fa-solid fa-trophy fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/archives"
+                        >
+                            <span>全部文章归档</span>
+                            <i class="fa-regular fa-folder-open fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
             
         </ul>
 
@@ -572,7 +680,7 @@ body:not(.navbar-shrink) .navbar-container .navbar-content.has-home-banner .navb
 <p><strong>注</strong>：早期版本的「游戏体检」现已在 <a class="link"   target="_blank" rel="noopener" href="https://killercs.com/" >KillerCS 登录器 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 首页升级更名为 <strong>「一键优化」</strong>（在「开始战斗！」右侧），底部直接带 <strong>「去黑边」</strong> 与 <strong>「保留黑边」</strong> 两个独立切换按钮。</p>
 </blockquote>
 <h2 id="「我就想全屏，它偏要窗口化」"><a href="#「我就想全屏，它偏要窗口化」" class="headerlink" title="「我就想全屏，它偏要窗口化」"></a>「我就想全屏，它偏要窗口化」</h2><p>这是 CS1.5 玩家特别常见的一个困扰：游戏一打开是个小窗口，标题栏、任务栏全露在外面；或者明明是全屏了，宽屏显示器上画面却挤在中间，<strong>两边各有一条黑边</strong>。试着在游戏视频选项里改、在快捷方式里改，折腾半天还是切不回想要的全屏。</p>
-<h2 id="为什么这么难切回来"><a href="#为什么这么难切回来" class="headerlink" title="为什么这么难切回来"></a>为什么这么难切回来</h2><p>原因在于：CS1.5 的「全屏还是窗口、有没有黑边」，其实是<strong>由好几处设置共同决定的</strong>，分散在游戏注册表、启动参数与显卡缩放里。你在一个地方改了，另一个地方还是旧的，两边一打架，结果就是怎么改都不对。</p>
+<h2 id="为什么这么难切回来"><a href="#为什么这么难切回来" class="headerlink" title="为什么这么难切回来"></a>为什么这么难切回来</h2><p>原因在于：CS1.5 的「全屏还是窗口、有没有黑边」，其实是<strong>由游戏、系统与显卡好几处设置共同决定的</strong>。你在一个地方改了，另一个地方还是旧的，两边一打架，结果就是怎么改都不对。</p>
 <p>而宽屏黑边是另一回事：CS1.5 是 4:3 的老游戏，在 16:9 &#x2F; 16:10 的宽屏上，如果显卡保持纵横比，两边自然就留出黑边；要满屏铺满，需要把显卡缩放调成全屏拉伸。</p>
 <h2 id="一键解决：「一键优化」切全屏-去黑边-保留黑边双按钮"><a href="#一键解决：「一键优化」切全屏-去黑边-保留黑边双按钮" class="headerlink" title="一键解决：「一键优化」切全屏 + 去黑边 &#x2F; 保留黑边双按钮"></a>一键解决：「一键优化」切全屏 + 去黑边 &#x2F; 保留黑边双按钮</h2><p>与其自己满世界找开关，KillerCS 登录器 v6.6 的 <strong>「一键优化」</strong> 把这两件事彻底理顺了：</p>
 <ul>
